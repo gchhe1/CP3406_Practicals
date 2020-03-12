@@ -15,14 +15,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
+    public void displayValue(int sum){
+        TextView textView = findViewById(R.id.sum);
+        String result = "" + sum;
+        textView.setText(result);
+    }
+
     int sum;
+    public void buttonCleared(View view){
+        sum = 0;
+        displayValue(sum);
+    }
+
     public void buttonClicked(View view){
         Button button = (Button) view;
         int number = Integer.parseInt(button.getText().toString());
         sum += number;
-
-        TextView textView = findViewById(R.id.sum);
-        String result = "" + sum;
-        textView.setText(result);
+        displayValue(sum);
     }
 }
